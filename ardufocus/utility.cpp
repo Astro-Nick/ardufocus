@@ -27,7 +27,7 @@
 float util::steinhart(const uint16_t& raw)
 {
   float ret = constrain(raw, 1, 1022);
-  ret  = THERMISTOR_SERIESRESISTOR / (1023.0 / ret - 1);  // convert raw to ohms
+  ret  = THERMISTOR_SERIESRESISTOR / (1023.0 / ret - 1.0);  // convert raw to ohms
   ret  = ret / THERMISTOR_NOMINAL_VAL;                    // (R/Ro)
   ret  = log(ret);                                        // ln(R/Ro)
   ret /= THERMISTOR_BCOEFFICIENT;                         // 1/B * ln(R/Ro)
